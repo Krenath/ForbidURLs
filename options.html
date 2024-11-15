@@ -3,21 +3,96 @@
 <head>
   <title>ForbidURLs - Options</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    textarea { width: 100%; height: 200px; margin-bottom: 10px; }
-    button { margin-top: 10px; padding: 10px; cursor: pointer; }
-    #allowedUrls { margin-top: 20px; list-style-type: decimal; padding-left: 20px; }
-    #status { margin-top: 10px; color: green; display: none; }
+    /* General Page Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    #status {
+      text-align: center;
+      color: green;
+      display: none;
+      margin-bottom: 20px;
+    }
+
+    /* Two-Column Layout */
+    .container {
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .left-column, .right-column {
+      flex: 1;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .left-column {
+      border-right: 1px solid #ccc;
+    }
+
+    .right-column {
+      padding-left: 40px;
+    }
+
+    /* Block List Section */
+    textarea {
+      width: 100%;
+      height: 200px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    /* Allowed URLs Section */
+    ul {
+      list-style-type: decimal;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 5px;
+    }
+
+    ul li button {
+      margin-right: 10px;
+    }
   </style>
 </head>
 <body>
-  <h1>Configure Blocked URL Patterns</h1>
-  <textarea id="patterns" placeholder="Enter regex patterns, one per line"></textarea>
-  <button id="save">Save</button>
-  <button id="clear">Clear Allowed URLs List</button>
+  <h1>ForbidURLs Options</h1>
   <div id="status">Patterns saved successfully!</div>
-  <h2>Allowed URLs</h2>
-  <ul id="allowedUrls"></ul>
+
+  <div class="container">
+    <!-- Left Column: Block List -->
+    <div class="left-column">
+      <h2>Blocked URL Patterns</h2>
+      <textarea id="patterns" placeholder="Enter regex patterns, one per line"></textarea>
+      <button id="save">Save</button>
+    </div>
+
+    <!-- Right Column: Allowed URLs -->
+    <div class="right-column">
+      <h2>Allowed URLs</h2>
+      <ul id="allowedUrls"></ul>
+      <button id="clear">Clear Allowed URLs List</button>
+    </div>
+  </div>
+
   <script src="options.js"></script>
 </body>
 </html>
